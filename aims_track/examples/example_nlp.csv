@@ -1,0 +1,11 @@
+text,predicted_label,group
+approved for credit card,1,A
+declined application,0,B
+approved,1,A
+declined,0,B
+approved,1,A
+approved,1,A
+declined,0,B
+approved,1,B
+declined,0,B
+approved,1,A

@@ -1,0 +1,11 @@
+text,predicted_label,group
+label: safe,1,Headset-A
+label: unsafe,0,Headset-B
+label: safe,1,Headset-A
+label: borderline,0,Headset-B
+label: safe,1,Headset-A
+label: unsafe,0,Headset-B
+label: safe,1,Headset-A
+label: unsafe,0,Headset-B
+label: safe,1,Headset-B
+label: borderline,0,Headset-A
