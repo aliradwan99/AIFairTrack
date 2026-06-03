@@ -6,6 +6,10 @@
 AIFairTrack is an open-source dashboard that evaluates fairness of NLP/LLM predictions and AR/VR annotation datasets. 
 This starter kit includes a minimal Streamlit app, sample datasets, a whitepaper outline, policy mapping, and demo scripts.
 
+## Motivation
+
+As AI-driven interfaces become increasingly embedded into real-time communication systems and immersive AR/VR environments, fairness and consistency in language model outputs are critical to ensuring positive user experiences and protecting user trust. AIFairTrack was created to provide a transparent, practical, and publicly accessible framework for measuring and addressing behavioral disparities in NLP and LLM-based annotation workflows. This aligns with my broader professional focus on advancing safe, equitable, and user-centered AI systems.
+
 ## Quickstart
 ```bash
 python -m venv venv
