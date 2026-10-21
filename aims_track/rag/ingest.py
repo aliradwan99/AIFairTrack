@@ -2,7 +2,8 @@
 import shutil
 from pathlib import Path
 
-from langchain_community.document_loaders import PyPDFLoader
+from pypdf import PdfReader
+from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
@@ -18,13 +19,21 @@ def get_embeddings():
     return HuggingFaceEmbeddings(model_name=EMBED_MODEL)
 
 
+def load_pdf(pdf: Path) -> list[Document]:
+    reader = PdfReader(str(pdf))
+    return [
+        Document(
+            page_content=page.extract_text() or "",
+            metadata={"source_doc": pdf.stem, "page_number": i + 1},
+        )
+        for i, page in enumerate(reader.pages)
+    ]
+
+
 def build_index():
     docs = []
     for pdf in sorted(DOCS_DIR.glob("*.pdf")):
-        pages = PyPDFLoader(str(pdf)).load()
-        for p in pages:
-            p.metadata["source_doc"] = pdf.stem
-            p.metadata["page_number"] = p.metadata.get("page", 0) + 1
+        pages = load_pdf(pdf)
         docs.extend(pages)
         print(f"Loaded {pdf.name}: {len(pages)} pages")
 
