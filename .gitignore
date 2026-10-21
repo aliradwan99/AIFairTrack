@@ -18,3 +18,6 @@ env/
 # Misc
 *.log
 .env
+.env
+chroma_db/
+venv/

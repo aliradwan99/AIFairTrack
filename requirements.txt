@@ -1,2 +1,10 @@
 streamlit
 pandas
+langchain
+langgraph
+langchain-community
+langchain-chroma
+langchain-huggingface
+sentence-transformers
+pypdf
+python-dotenv
