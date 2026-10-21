@@ -8,7 +8,7 @@ from langchain.agents import create_agent
 from langchain_core.messages import ToolMessage
 from langgraph.graph import StateGraph, START, END
 
-from aims_track.agent.llm import get_llm, PRIMARY_MODEL, FALLBACK_MODEL
+from aims_track.agent.llm import get_llm, call_with_fallback
 from aims_track.agent.tools import make_tools
 
 SYSTEM_PROMPT = """You are AIFairTrack's fairness auditor. You analyze group-level outcome metrics
@@ -78,17 +78,11 @@ def build_audit_graph(df: pd.DataFrame):
             f"Pre-computed metrics:\n{json.dumps(state['metrics'], indent=2)}\n\n"
             "Write the fairness risk report."
         )
-        last_err = None
-        for model_name in (PRIMARY_MODEL, FALLBACK_MODEL):
-            try:
-                agent = create_agent(get_llm(model_name), tools=tools, system_prompt=SYSTEM_PROMPT)
-                result = agent.invoke({"messages": [{"role": "user", "content": task}]})
-                break
-            except Exception as e:
-                last_err = e
-                print(f"[fallback] {model_name} failed: {str(e)[:100]}")
-        else:
-            raise RuntimeError(f"All models failed. Last error: {last_err}")
+        def run_agent(model_name):
+            agent = create_agent(get_llm(model_name), tools=tools, system_prompt=SYSTEM_PROMPT)
+            return agent.invoke({"messages": [{"role": "user", "content": task}]})
+
+        result, model_name = call_with_fallback(run_agent)
 
         # Record every NIST page the agent actually retrieved, for the citation check
         retrieved = []
