@@ -1,0 +1,14 @@
+[
+  {"id": "R1_confabulation", "question": "What risks does NIST identify for generative AI producing false or misleading content?", "evidence_terms": ["confabulation", "information integrity"], "note": "Logged failure R1. Vocabulary mismatch: user says 'false content', NIST says 'confabulation'."},
+  {"id": "bias_monitoring", "question": "How should organizations monitor AI systems for harmful bias after deployment?", "evidence_terms": ["harmful bias", "fairness and bias"]},
+  {"id": "bias_categories", "question": "What three categories of AI bias does NIST identify?", "evidence_terms": ["human-cognitive"]},
+  {"id": "trustworthy_traits", "question": "What are the characteristics of trustworthy AI?", "evidence_terms": ["valid and reliable", "accountable and transparent"]},
+  {"id": "core_functions", "question": "What are the four functions of the AI RMF core?", "evidence_terms": ["four functions"]},
+  {"id": "voluntary", "question": "Is following the AI Risk Management Framework mandatory?", "evidence_terms": ["voluntary"], "note": "Related to G5: the false-premise fine question."},
+  {"id": "data_privacy", "question": "What privacy risks come from generative AI?", "evidence_terms": ["data privacy"]},
+  {"id": "cbrn", "question": "Could generative AI make it easier to build dangerous weapons?", "evidence_terms": ["cbrn", "chemical, biological"]},
+  {"id": "intellectual_property", "question": "What copyright and ownership risks does generative AI create?", "evidence_terms": ["intellectual property"]},
+  {"id": "human_oversight", "question": "What role should humans play in overseeing AI systems?", "evidence_terms": ["human oversight"]},
+  {"id": "environment", "question": "What are the environmental costs of generative AI?", "evidence_terms": ["environmental"]},
+  {"id": "harmful_imagery", "question": "What does NIST say about AI generating abusive or degrading imagery?", "evidence_terms": ["obscene", "abusive content"]}
+]
