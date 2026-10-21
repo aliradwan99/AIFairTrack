@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from aims_track.rag.ingest import EMBED_MODEL
+from aims_track.rag.ingest import EMBED_MODEL, FILTER_BOILERPLATE
 from aims_track.rag.retriever import search_policy, get_vectorstore
 
 CASES_PATH = ROOT / "evals" / "retrieval_cases.json"
@@ -74,7 +74,7 @@ def main():
     cases = json.loads(CASES_PATH.read_text())
 
     corpus_size, missing = check_labels(cases)
-    print(f"Index: {corpus_size} chunks | embedding model: {EMBED_MODEL}")
+    print(f"Index: {corpus_size} chunks | embedding model: {EMBED_MODEL} | filter: {FILTER_BOILERPLATE}")
     if missing:
         print(f"LABEL ERROR: evidence terms not found anywhere in the index for: {missing}")
         print("Fix these cases in retrieval_cases.json before trusting the scores.\n")
@@ -97,6 +97,7 @@ def main():
         "label": args.label,
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "embedding_model": EMBED_MODEL,
+        "filter_boilerplate": FILTER_BOILERPLATE,
         "index_chunks": corpus_size,
         "label_errors": missing,
         "summary": summary,

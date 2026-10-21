@@ -40,3 +40,21 @@ measured before and after the fix.
   is voluntary, stated in 100-1). Same wording as R1, where the answer existed but
   retrieval missed it. Users cannot tell "not in NIST" from "search failed."
 - **UX1: Yellow "no citations" warning shown for correct refusals,** same as for failures.
+
+## Phase 6b results: retrieval experiments
+Retrieval benchmark (12 cases, evidence-term relevance). One change at a time:
+
+| config | hit@4 | MRR | misses |
+|---|---|---|---|
+| MiniLM (baseline) | 0.75 | 0.607 | R1, voluntary |
+| MiniLM + boilerplate filter | 0.75 | 0.607 | R1, voluntary |
+| bge-small + filter | 0.667 | 0.506 | R1 |
+| **bge-base + filter (adopted)** | **0.833** | **0.704** | R1 |
+
+- Boilerplate filter removed junk results (2.1% to 0%) but did not change scores, as predicted.
+- bge-small regressed despite being search-tuned; size mattered more than training objective here.
+- **voluntary** now retrieved, unblocking a proper answer to G5 (false-premise fines question).
+- **R1 unresolved by embeddings alone.** Vocabulary gap ("false content" vs "confabulation")
+  needs query-side handling. Caution: any fix must be checked on held-out questions, not just R1,
+  to avoid tuning the system to the test.
+- Caveat: 12 cases; hit@4 gain is one case. MRR gain is the stronger signal.
