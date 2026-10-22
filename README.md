@@ -77,7 +77,7 @@ Attacks hide instructions in an uploaded CSV's group values and column names, wh
 
 ## Setup
 
-Requires Python 3.12+ and an [Anthropic API key](https://platform.claude.com). The agent defaults to Claude Sonnet 5.5, with Claude Haiku 5.5 for query rewriting; other LangChain-supported providers can be configured.
+Requires Python 3.12+ and an [Anthropic API key](https://platform.claude.com). The agent defaults to Claude Sonnet 5.5, with Claude Haiku 5.5 for query rewriting. Other LangChain-supported providers can be set in `.env` after installing their integration package (for example, `langchain-google-genai` for Gemini).
 
 ```bash
 git clone https://github.com/aliradwan99/AIFairTrack.git

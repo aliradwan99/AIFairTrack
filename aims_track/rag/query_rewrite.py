@@ -2,7 +2,7 @@
 Targets vocabulary gaps such as R1 ("false content" vs NIST's "confabulation").
 
 Uses a lightweight model by default: rewriting is a simple task that runs on every
-search, so a Flash-Lite model is faster and has a separate, larger free-tier quota.
+search, so a small, fast model (Claude Haiku 5.5) keeps it quick and inexpensive.
 """
 import os
 

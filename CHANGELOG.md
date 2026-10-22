@@ -9,6 +9,7 @@
 
 **Changed**
 - Default model switched from Gemini to Claude (Sonnet 5.5 for the agent, Haiku 5.5 for query rewriting).
+- Gemini integration is no longer a required dependency.
 
 **Fixed**
 - Red-team scorer counted quoted mentions of a payload as successful attacks; results were rescored from saved reports.

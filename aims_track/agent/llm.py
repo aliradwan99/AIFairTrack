@@ -11,7 +11,7 @@ load_dotenv()
 DEFAULT_MODEL = "anthropic:claude-sonnet-5-5"
 PRIMARY_MODEL = os.getenv("LLM_MODEL", DEFAULT_MODEL)
 
-# Tried in order if the primary fails. On the free tier, each model usually has its own quota.
+# Tried in order if the primary fails (for example, an outage or a rate limit).
 _fallbacks = os.getenv(
     "LLM_FALLBACK_MODELS",
     "anthropic:claude-haiku-5-5",
@@ -23,7 +23,7 @@ RATE_LIMIT_WAIT_SECONDS = 45
 
 
 def get_llm(model: str | None = None, temperature: float | None = None):
-    # Newer Gemini models ignore temperature, so only send it when explicitly requested
+    # Some models ignore temperature, so only send it when explicitly requested
     kwargs = {} if temperature is None else {"temperature": temperature}
     if (model or PRIMARY_MODEL).startswith("anthropic:"):
         kwargs.setdefault("max_tokens", 4096)  # avoid truncated reports
