@@ -184,3 +184,7 @@ Any model-level success that only layer 3 stops is reported as such, not hidden.
 - Output policy check never triggered in live runs; verified with unit tests (evals/test_guardrails.py).
 - Limitation: 12 attack runs per condition on one model. The 1/12 to 0/12 change is directionally
   correct but not statistically strong; the layer-by-layer behavior is the more meaningful result.
+
+- **G1 update:** on Claude Sonnet 5.5, the 10-row sample was rated High "even allowing for the
+  small sample," with sample-size fragility noted separately. Severity and confidence kept apart.
+  Observed in 1 run; not yet measured systematically.
