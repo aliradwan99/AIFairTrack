@@ -58,3 +58,40 @@ Retrieval benchmark (12 cases, evidence-term relevance). One change at a time:
   needs query-side handling. Caution: any fix must be checked on held-out questions, not just R1,
   to avoid tuning the system to the test.
 - Caveat: 12 cases; hit@4 gain is one case. MRR gain is the stronger signal.
+
+## Phase 6c: query rewriting (criteria set BEFORE running)
+Held-out baseline (bge-base, no rewrite, 7 cases): hit@1 0.286, hit@4 0.857, MRR 0.464. Miss: H_emotional.
+Two variants: "plain" (LLM rewrites into NIST vocabulary from its own knowledge) and
+"taxonomy" (same, plus the 12 risk category names from 600-1's own structure).
+Note: several held-out terms are taxonomy category names, so "taxonomy" has an advantage there;
+H_emotional, H_overreliance, H_red_team, and H_provenance are NOT category names and test generalization.
+
+Adopt a variant only if ALL hold:
+1. Held-out MRR improves over 0.464.
+2. Dev set does not regress (hit@4 >= 0.833, MRR >= 0.704).
+3. R1 is no longer a miss.
+If none qualifies, rewriting is not adopted, and that is a valid result.
+
+- **REL2: Daily free-tier quota exhausted on 3.6 and 3.5 Flash during eval runs.**
+  Fallback chain still succeeded on the third model, but each call first waited through
+  the client library's internal retries on both exhausted models, making runs very slow,
+  and mixed models within a single experiment. Fix: run rewrite experiments on
+  gemini-3.5-flash-lite (separate, larger quota; adequate for a simple rewrite task),
+  using the same model across all four runs for a fair comparison.
+
+### Phase 6c results
+| set | config | hit@1 | hit@4 | MRR | misses |
+|---|---|---|---|---|---|
+| dev | no rewrite | 0.583 | 0.833 | 0.704 | R1 |
+| dev | plain | 0.583 | 0.917 | 0.736 | - |
+| dev | taxonomy | 0.75 | 0.917 | 0.836 | - |
+| held-out | no rewrite | 0.286 | 0.857 | 0.464 | H_emotional |
+| held-out | **plain (adopted)** | 0.714 | 1.0 | 0.833 | - |
+| held-out | taxonomy | 0.571 | 0.857 | 0.743 | - |
+
+- Both variants met all pre-registered criteria. **R1 resolved.** H_emotional resolved.
+- Taxonomy won on dev but lost on held-out, despite an expected held-out advantage. Dev questions
+  are mostly taxonomy categories, so taxonomy looks good there by construction. No tie-breaker
+  was pre-registered; chose plain because held-out performance measures generalization.
+- Rewrites run on gemini-3.5-flash-lite (REWRITE_MODEL), with the main chain as fallback.
+- Caveats: 7 held-out cases (one case ~0.14 hit@4); LLM rewrites vary run to run.

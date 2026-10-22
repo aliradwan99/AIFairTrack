@@ -1,0 +1,89 @@
+{
+  "label": "heldout_bge_base",
+  "cases_file": "retrieval_heldout.json",
+  "timestamp": "2026-10-21T17:21:05",
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "filter_boilerplate": true,
+  "index_chunks": 350,
+  "label_errors": [],
+  "summary": {
+    "cases": 7,
+    "hit@1": 0.286,
+    "hit@4": 0.857,
+    "hit@8": 0.857,
+    "mrr": 0.464,
+    "boilerplate_rate": 0.0
+  },
+  "cases": [
+    {
+      "id": "H_emotional",
+      "first_relevant_rank": null,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.11",
+        "NIST_AI_600-1 p.22",
+        "NIST_AI_600-1 p.42"
+      ]
+    },
+    {
+      "id": "H_overreliance",
+      "first_relevant_rank": 3,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.10",
+        "NIST_AI_100-1 p.43",
+        "NIST_AI_600-1 p.13"
+      ]
+    },
+    {
+      "id": "H_homogenization",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.13",
+        "NIST_AI_600-1 p.61",
+        "NIST_AI_100-1 p.9"
+      ]
+    },
+    {
+      "id": "H_value_chain",
+      "first_relevant_rank": 4,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.7",
+        "NIST_AI_100-1 p.44",
+        "NIST_AI_100-1 p.43"
+      ]
+    },
+    {
+      "id": "H_info_security",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.14",
+        "NIST_AI_100-1 p.44",
+        "NIST_AI_100-1 p.30"
+      ]
+    },
+    {
+      "id": "H_red_team",
+      "first_relevant_rank": 3,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.44",
+        "NIST_AI_100-1 p.46",
+        "NIST_AI_600-1 p.54"
+      ]
+    },
+    {
+      "id": "H_provenance",
+      "first_relevant_rank": 3,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.42",
+        "NIST_AI_600-1 p.45",
+        "NIST_AI_600-1 p.37"
+      ]
+    }
+  ]
+}

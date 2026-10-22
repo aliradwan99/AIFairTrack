@@ -8,6 +8,7 @@ a passage that mentions a term in passing still counts.
 import argparse
 import json
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -15,12 +16,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from aims_track.rag.ingest import EMBED_MODEL, FILTER_BOILERPLATE
-from aims_track.rag.retriever import search_policy, get_vectorstore
+from aims_track.rag.retriever import search_policy, get_vectorstore, REWRITE_MODE
 
 CASES_PATH = ROOT / "evals" / "retrieval_cases.json"
 RESULTS_DIR = ROOT / "evals" / "results"
 BOILERPLATE_MARKERS = ("available free of charge", "doi.org/10.6028")
 K = 8
+PAUSE_SECONDS = 4  # pace LLM rewrite calls to stay under free-tier rate limits
 
 
 def is_relevant(text: str, terms: list) -> bool:
@@ -43,10 +45,13 @@ def check_labels(cases: list) -> tuple[int, list]:
 def evaluate(cases: list, k: int = K) -> tuple[dict, list]:
     rows = []
     for c in cases:
+        if REWRITE_MODE != "off":
+            time.sleep(PAUSE_SECONDS)
         results = search_policy(c["question"], k=k)
         relevant = [is_relevant(r["text"], c["evidence_terms"]) for r in results]
         first = next((i + 1 for i, hit in enumerate(relevant) if hit), None)
         rows.append({
+            "rewritten_query": results[0].get("rewritten_query") if results else None,
             "id": c["id"],
             "first_relevant_rank": first,
             "boilerplate_in_top_k": sum(is_boilerplate(r["text"]) for r in results),
@@ -69,12 +74,13 @@ def evaluate(cases: list, k: int = K) -> tuple[dict, list]:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--label", default="baseline", help="Name for this run, e.g. baseline")
+    parser.add_argument("--cases", default="retrieval_cases.json", help="Question file inside evals/")
     args = parser.parse_args()
 
-    cases = json.loads(CASES_PATH.read_text())
+    cases = json.loads((ROOT / "evals" / args.cases).read_text())
 
     corpus_size, missing = check_labels(cases)
-    print(f"Index: {corpus_size} chunks | embedding model: {EMBED_MODEL} | filter: {FILTER_BOILERPLATE}")
+    print(f"Index: {corpus_size} chunks | embedding model: {EMBED_MODEL} | filter: {FILTER_BOILERPLATE} | rewrite: {REWRITE_MODE}")
     if missing:
         print(f"LABEL ERROR: evidence terms not found anywhere in the index for: {missing}")
         print("Fix these cases in retrieval_cases.json before trusting the scores.\n")
@@ -95,6 +101,8 @@ def main():
     out = RESULTS_DIR / f"retrieval_{args.label}.json"
     out.write_text(json.dumps({
         "label": args.label,
+        "cases_file": args.cases,
+        "query_rewrite": REWRITE_MODE,
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "embedding_model": EMBED_MODEL,
         "filter_boilerplate": FILTER_BOILERPLATE,

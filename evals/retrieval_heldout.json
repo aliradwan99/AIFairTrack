@@ -1,0 +1,9 @@
+[
+  {"id": "H_emotional", "question": "Can people become emotionally attached to chatbots or treat them like humans?", "evidence_terms": ["anthropomorphiz", "emotional entanglement"]},
+  {"id": "H_overreliance", "question": "What if people trust AI answers so much that they stop double-checking them?", "evidence_terms": ["automation bias"]},
+  {"id": "H_homogenization", "question": "Is it a problem if every AI model ends up giving the same kinds of answers?", "evidence_terms": ["homogenization"]},
+  {"id": "H_value_chain", "question": "What risks come from using AI models and parts bought from outside vendors?", "evidence_terms": ["value chain"]},
+  {"id": "H_info_security", "question": "Could AI help hackers break into computer systems?", "evidence_terms": ["information security", "offensive cyber"]},
+  {"id": "H_red_team", "question": "Should companies let outside experts try to break their AI before release?", "evidence_terms": ["red-team", "red team"]},
+  {"id": "H_provenance", "question": "How can people tell whether content was made by AI or by a human?", "evidence_terms": ["provenance"]}
+]
