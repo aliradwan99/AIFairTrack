@@ -1,0 +1,152 @@
+{
+  "label": "dev_concise_r2",
+  "cases_file": "retrieval_cases.json",
+  "query_rewrite": "concise",
+  "timestamp": "2026-10-21T20:06:45",
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "filter_boilerplate": true,
+  "index_chunks": 350,
+  "label_errors": [],
+  "summary": {
+    "cases": 12,
+    "hit@1": 0.5,
+    "hit@4": 0.917,
+    "hit@8": 0.917,
+    "mrr": 0.708,
+    "boilerplate_rate": 0.0
+  },
+  "cases": [
+    {
+      "rewritten_query": "Hallucination, Misinformation, Disinformation, Systemic risk, Brand erosion, Content provenance",
+      "id": "R1_confabulation",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.31",
+        "NIST_AI_600-1 p.14",
+        "NIST_AI_600-1 p.15"
+      ]
+    },
+    {
+      "rewritten_query": "Post-deployment monitoring, bias and fairness, impact assessment, continuous improvement, verification and validation",
+      "id": "bias_monitoring",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.40",
+        "NIST_AI_600-1 p.49",
+        "NIST_AI_600-1 p.44"
+      ]
+    },
+    {
+      "rewritten_query": "Computational bias, Systemic bias, Human bias",
+      "id": "bias_categories",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.23",
+        "NIST_AI_600-1 p.60",
+        "NIST_AI_600-1 p.42"
+      ]
+    },
+    {
+      "rewritten_query": "Valid and reliable, Safe, Secure and resilient, Accountable and transparent, Explainable and interpretable, Privacy-enhanced, Fair with harmful bias managed",
+      "id": "trustworthy_traits",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.17",
+        "NIST_AI_100-1 p.17",
+        "NIST_AI_600-1 p.13"
+      ]
+    },
+    {
+      "rewritten_query": "Govern, Map, Measure, Manage",
+      "id": "core_functions",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.8",
+        "NIST_AI_100-1 p.25",
+        "NIST_AI_100-1 p.36"
+      ]
+    },
+    {
+      "rewritten_query": "Govern, Map, Measure, Manage",
+      "id": "voluntary",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.36",
+        "NIST_AI_600-1 p.5",
+        "NIST_AI_100-1 p.36"
+      ]
+    },
+    {
+      "rewritten_query": "privacy degradation, inference attacks, data linkage, unauthorized data ingestion, training data extraction",
+      "id": "data_privacy",
+      "first_relevant_rank": null,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.55",
+        "NIST_AI_600-1 p.11",
+        "NIST_AI_600-1 p.39"
+      ]
+    },
+    {
+      "rewritten_query": "Hazardous materials and CBRN, Chemical, biological, radiological, or nuclear risks, Dual-use, Proliferation risks, Misuse, Harmful capabilities",
+      "id": "cbrn",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.9",
+        "NIST_AI_600-1 p.14",
+        "NIST_AI_600-1 p.8"
+      ]
+    },
+    {
+      "rewritten_query": "Intellectual property, Data provenance, Attribution, Unauthorized use, Infringement",
+      "id": "intellectual_property",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.30",
+        "NIST_AI_600-1 p.15",
+        "NIST_AI_600-1 p.55"
+      ]
+    },
+    {
+      "rewritten_query": "Human-in-the-loop, Human-on-the-loop, Human-out-of-the-loop, Oversight, Accountability, Operator intervention",
+      "id": "human_oversight",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.22",
+        "NIST_AI_600-1 p.20",
+        "NIST_AI_600-1 p.21"
+      ]
+    },
+    {
+      "rewritten_query": "Natural resource depletion, Energy consumption, Hardware lifecycle impacts, Environmental impact assessment",
+      "id": "environment",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.12",
+        "NIST_AI_600-1 p.12",
+        "NIST_AI_600-1 p.8"
+      ]
+    },
+    {
+      "rewritten_query": "Harmful content, Content provenance, Impact assessment, Risk measurement, Mitigation strategy",
+      "id": "harmful_imagery",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.40",
+        "NIST_AI_600-1 p.23",
+        "NIST_AI_600-1 p.15"
+      ]
+    }
+  ]
+}

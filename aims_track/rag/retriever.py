@@ -1,6 +1,6 @@
 """Search the NIST policy index and return passages with source and page citations.
 
-QUERY_REWRITE env var: "off", "plain" (default, chosen by held-out benchmark), or "taxonomy". When on, the question is
+QUERY_REWRITE env var: "off", "plain", "taxonomy", or "concise" (default, chosen by repeated held-out benchmark). When on, the question is
 also rewritten into NIST vocabulary, both queries are searched, and results are merged
 with reciprocal rank fusion, so a poor rewrite cannot fully replace the original query.
 """
@@ -17,7 +17,7 @@ from langchain_chroma import Chroma
 
 from aims_track.rag.ingest import DB_DIR, COLLECTION, get_embeddings
 
-REWRITE_MODE = os.getenv("QUERY_REWRITE", "plain")
+REWRITE_MODE = os.getenv("QUERY_REWRITE", "concise")
 RRF_K = 60  # standard reciprocal rank fusion constant
 
 _store = None

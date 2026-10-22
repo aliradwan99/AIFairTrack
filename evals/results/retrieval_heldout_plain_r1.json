@@ -2,66 +2,66 @@
   "label": "heldout_plain_r1",
   "cases_file": "retrieval_heldout.json",
   "query_rewrite": "plain",
-  "timestamp": "2026-10-21T19:24:30",
+  "timestamp": "2026-10-21T19:53:37",
   "embedding_model": "BAAI/bge-base-en-v1.5",
   "filter_boilerplate": true,
   "index_chunks": 350,
   "label_errors": [],
   "summary": {
     "cases": 7,
-    "hit@1": 1.0,
+    "hit@1": 0.714,
     "hit@4": 1.0,
     "hit@8": 1.0,
-    "mrr": 1.0,
+    "mrr": 0.833,
     "boilerplate_rate": 0.0
   },
   "cases": [
     {
-      "rewritten_query": "anthropomorphic attribution human-AI interaction psychological safety emotional reliance generative AI transparency trustworthy AI characteristics",
+      "rewritten_query": "AI anthropomorphism human-AI interaction trust misuse social impacts user relationships generative AI psychological safety trust and reliance",
       "id": "H_emotional",
-      "first_relevant_rank": 1,
+      "first_relevant_rank": 3,
       "boilerplate_in_top_k": 0,
       "top_3": [
-        "NIST_AI_600-1 p.8",
-        "NIST_AI_600-1 p.35",
-        "NIST_AI_600-1 p.64"
+        "NIST_AI_600-1 p.27",
+        "NIST_AI_600-1 p.22",
+        "NIST_AI_600-1 p.35"
       ]
     },
     {
-      "rewritten_query": "Overreliance automation bias human-AI configuration trust validity reliability transparency generative AI risks",
+      "rewritten_query": "Overreliance\" \"human-AI configuration\" \"trust\" \"automation bias\" \"human oversight\" \"fallibility\" \"generative AI",
       "id": "H_overreliance",
       "first_relevant_rank": 1,
       "boilerplate_in_top_k": 0,
       "top_3": [
         "NIST_AI_600-1 p.13",
-        "NIST_AI_100-1 p.46",
-        "NIST_AI_600-1 p.13"
+        "NIST_AI_600-1 p.13",
+        "NIST_AI_600-1 p.42"
       ]
     },
     {
-      "rewritten_query": "AI RMF generative AI profile model collapse diversity homogenization risk monoculture outputs mitigation",
+      "rewritten_query": "AI RMF diversity monoculture systemic risk generative AI collapse homogenization mitigation",
       "id": "H_homogenization",
       "first_relevant_rank": 1,
       "boilerplate_in_top_k": 0,
       "top_3": [
         "NIST_AI_600-1 p.13",
-        "NIST_AI_600-1 p.61",
-        "NIST_AI_600-1 p.5"
+        "NIST_AI_600-1 p.5",
+        "NIST_AI_600-1 p.61"
       ]
     },
     {
-      "rewritten_query": "third-party AI risk supply chain transparency foundation models provenance external developers trustworthiness AI components",
+      "rewritten_query": "third-party AI model risks supply chain vulnerability trustworthiness third-party entities AI components provenance acquisition NIST AI RMF AI 600-1",
       "id": "H_value_chain",
-      "first_relevant_rank": 1,
+      "first_relevant_rank": 2,
       "boilerplate_in_top_k": 0,
       "top_3": [
+        "NIST_AI_100-1 p.10",
         "NIST_AI_600-1 p.47",
-        "NIST_AI_600-1 p.25",
-        "NIST_AI_600-1 p.16"
+        "NIST_AI_600-1 p.25"
       ]
     },
     {
-      "rewritten_query": "Generative AI cybersecurity risks, autonomous cyberattacks, dual-use vulnerabilities, software exploitation, system compromise, AI-enabled malicious use, threat actors, attack vectors.",
+      "rewritten_query": "AI cyberattacks security risks, autonomous exploitation, dual-use vulnerabilities, offensive cyber capabilities, system integrity, AI 600-1, AI 100-1.",
       "id": "H_info_security",
       "first_relevant_rank": 1,
       "boilerplate_in_top_k": 0,
@@ -72,25 +72,25 @@
       ]
     },
     {
-      "rewritten_query": "pre-release third-party red teaming generative AI safety risk management trustworthiness evaluations",
+      "rewritten_query": "pre-release red teaming external experts generative AI risk management AI 100-1 AI 600-1 trustworthiness validity reliability",
       "id": "H_red_team",
       "first_relevant_rank": 1,
       "boilerplate_in_top_k": 0,
       "top_3": [
         "NIST_AI_600-1 p.54",
-        "NIST_AI_600-1 p.44",
-        "NIST_AI_600-1 p.39"
+        "NIST_AI_600-1 p.39",
+        "NIST_AI_600-1 p.54"
       ]
     },
     {
-      "rewritten_query": "provenance of generative AI content, content authentication, synthetic content detection, watermarking, provenance tracking, human-AI content differentiation.",
+      "rewritten_query": "AI-generated content detection provenance authenticity watermarking and trustworthiness measurement.",
       "id": "H_provenance",
       "first_relevant_rank": 1,
       "boilerplate_in_top_k": 0,
       "top_3": [
         "NIST_AI_600-1 p.37",
         "NIST_AI_600-1 p.45",
-        "NIST_AI_600-1 p.55"
+        "NIST_AI_600-1 p.42"
       ]
     }
   ]

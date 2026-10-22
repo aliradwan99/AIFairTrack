@@ -28,6 +28,12 @@ TAXONOMY_ADDENDUM = """
 For reference, NIST AI 600-1 organizes generative AI risks into these categories: {risks}."""
 
 
+CONCISE_PROMPT = """List the 3 to 8 most specific technical terms that the NIST AI Risk Management
+Framework (AI 100-1) or the NIST Generative AI Profile (AI 600-1) would use for the topic of
+the question below. Prefer precise risk and practice names over general words. Do not include
+document names, \"NIST\", \"AI RMF\", or \"generative AI\". Output only the terms, comma-separated."""
+
+
 def _invoke(prompt: str) -> str:
     try:
         return get_llm(REWRITE_MODEL).invoke(prompt).text
@@ -38,7 +44,7 @@ def _invoke(prompt: str) -> str:
 
 
 def rewrite_query(question: str, mode: str = "plain") -> str:
-    prompt = BASE_PROMPT
+    prompt = CONCISE_PROMPT if mode == "concise" else BASE_PROMPT
     if mode == "taxonomy":
         prompt += TAXONOMY_ADDENDUM.format(risks=NIST_GAI_RISKS)
     prompt += f"\n\nQuestion: {question}"
