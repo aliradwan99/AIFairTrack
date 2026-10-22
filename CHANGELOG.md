@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.1.0 (2026-10-22)
+
+**Added**
+- Prompt-injection red team: 6 attack types hidden in dataset labels, including an adaptive attack built to pass the input filter; scored by code at model and final-report level, with hand review of scored successes.
+- Three-layer guardrails: allowlist input sanitization with aliasing, a hardened prompt, and a deterministic output policy (non-NIST links removed, contradictory Low ratings rejected). Warnings are shown in the UI.
+- Unit tests for guardrail layers 1 and 3.
+
+**Changed**
+- Default model switched from Gemini to Claude (Sonnet 5.5 for the agent, Haiku 5.5 for query rewriting).
+
+**Fixed**
+- Red-team scorer counted quoted mentions of a payload as successful attacks; results were rescored from saved reports.
+- With an injection aliased away, reports could state that no suspicious text was found; the agent is now told which labels were aliased and notes it under Limitations.
+
 ## v1.0.0 (2026-10-21)
 
 Agentic rebuild.

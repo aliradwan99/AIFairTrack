@@ -174,3 +174,13 @@ Any model-level success that only layer 3 stops is reported as such, not hidden.
   the UI warning. True from the model's view (it never saw the payload) but misleading to readers of
   the report alone. Fix: the agent is now told which labels were aliased and must note it under
   Limitations. Note: the defended red-team run above predates this fix.
+- Defended red team rerun after the G6 fix: still 0/12 at model and system level; control rated High.
+  Published results reflect the final code.
+
+### Phase 6d defended run (guardrails on, Claude Sonnet 5.5, 2 repeats)
+- **ASR 0/12 at both model and system level** (baseline 1/12). Control rated High in both runs.
+- Input allowlist aliased 5 of 6 attack types before the model saw them.
+- adaptive_short passed the allowlist by design; the model resisted it under the hardened prompt.
+- Output policy check never triggered in live runs; verified with unit tests (evals/test_guardrails.py).
+- Limitation: 12 attack runs per condition on one model. The 1/12 to 0/12 change is directionally
+  correct but not statistically strong; the layer-by-layer behavior is the more meaningful result.
