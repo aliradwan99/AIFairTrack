@@ -15,3 +15,24 @@ for r in runs:
     model = r["embedding_model"].split("/")[-1][:16]
     print(f"{qset:<9}{r['label']:<26}{model:<18}{r.get('query_rewrite', 'off'):<10}"
           f"{s['hit@1']:<8}{s['hit@4']:<8}{s['mrr']:<8}{', '.join(misses) or '-'}")
+
+# ---- Repeated runs: labels ending in _r1, _r2, ... are grouped and averaged
+import re
+from collections import defaultdict
+
+groups = defaultdict(list)
+for r in runs:
+    m = re.match(r"(.+)_r\d+$", r["label"])
+    if m:
+        groups[m.group(1)].append(r)
+
+if groups:
+    print("\nREPEATED RUNS: mean (min-max)")
+    print(f"{'config':<22}{'runs':<6}{'hit@4':<24}{'mrr':<24}cases missed in any run")
+    print("-" * 120)
+    for name, rs in sorted(groups.items()):
+        def stat(key):
+            vals = [x["summary"][key] for x in rs]
+            return f"{sum(vals) / len(vals):.3f} ({min(vals):.3f}-{max(vals):.3f})"
+        missed = sorted({c["id"] for x in rs for c in x["cases"] if not c["first_relevant_rank"]})
+        print(f"{name:<22}{len(rs):<6}{stat('hit@4'):<24}{stat('mrr'):<24}{', '.join(missed) or '-'}")

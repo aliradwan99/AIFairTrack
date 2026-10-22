@@ -1,0 +1,97 @@
+{
+  "label": "heldout_taxonomy_r2",
+  "cases_file": "retrieval_heldout.json",
+  "query_rewrite": "taxonomy",
+  "timestamp": "2026-10-21T19:29:47",
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "filter_boilerplate": true,
+  "index_chunks": 350,
+  "label_errors": [],
+  "summary": {
+    "cases": 7,
+    "hit@1": 0.714,
+    "hit@4": 1.0,
+    "hit@8": 1.0,
+    "mrr": 0.798,
+    "boilerplate_rate": 0.0
+  },
+  "cases": [
+    {
+      "rewritten_query": "Human-AI Configuration anthropomorphization psychological attachment parasocial relationships conversational agents",
+      "id": "H_emotional",
+      "first_relevant_rank": 4,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.22",
+        "NIST_AI_600-1 p.27",
+        "NIST_AI_600-1 p.42"
+      ]
+    },
+    {
+      "rewritten_query": "Human-AI Configuration overreliance automation bias trust calibration generative AI",
+      "id": "H_overreliance",
+      "first_relevant_rank": 3,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.35",
+        "NIST_AI_100-1 p.46",
+        "NIST_AI_600-1 p.13"
+      ]
+    },
+    {
+      "rewritten_query": "Generative AI risk management harmful bias homogenization output diversity model collapse value chain integration",
+      "id": "H_homogenization",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.13",
+        "NIST_AI_600-1 p.61",
+        "NIST_AI_600-1 p.27"
+      ]
+    },
+    {
+      "rewritten_query": "Value Chain and Component Integration risks third-party AI models external vendors",
+      "id": "H_value_chain",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.25",
+        "NIST_AI_600-1 p.47",
+        "NIST_AI_600-1 p.16"
+      ]
+    },
+    {
+      "rewritten_query": "Information security vulnerabilities, autonomous exploitation, value chain component integration, malicious capabilities, cyberattacks.",
+      "id": "H_info_security",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.14",
+        "NIST_AI_600-1 p.14",
+        "NIST_AI_600-1 p.25"
+      ]
+    },
+    {
+      "rewritten_query": "AI 100-1 AI 600-1 red teaming external audit pre-release vulnerability discovery generative AI risk management human-AI configuration information integrity",
+      "id": "H_red_team",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.39",
+        "NIST_AI_600-1 p.44",
+        "NIST_AI_600-1 p.54"
+      ]
+    },
+    {
+      "rewritten_query": "Information integrity provenance watermarking synthetic content detection generative AI risk management",
+      "id": "H_provenance",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.37",
+        "NIST_AI_600-1 p.45",
+        "NIST_AI_600-1 p.29"
+      ]
+    }
+  ]
+}

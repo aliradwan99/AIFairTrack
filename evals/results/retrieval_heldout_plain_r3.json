@@ -1,0 +1,97 @@
+{
+  "label": "heldout_plain_r3",
+  "cases_file": "retrieval_heldout.json",
+  "query_rewrite": "plain",
+  "timestamp": "2026-10-21T19:31:35",
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "filter_boilerplate": true,
+  "index_chunks": 350,
+  "label_errors": [],
+  "summary": {
+    "cases": 7,
+    "hit@1": 0.571,
+    "hit@4": 1.0,
+    "hit@8": 1.0,
+    "mrr": 0.714,
+    "boilerplate_rate": 0.0
+  },
+  "cases": [
+    {
+      "rewritten_query": "anthropomorphic attribution emotional attachment human-AI interaction trust misuse generative AI risks AI 600-1 AI 100-1",
+      "id": "H_emotional",
+      "first_relevant_rank": 4,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.27",
+        "NIST_AI_600-1 p.64",
+        "NIST_AI_600-1 p.22"
+      ]
+    },
+    {
+      "rewritten_query": "AI trustworthiness overreliance human-AI configuration automation bias lack of independent verification human oversight accountability risk",
+      "id": "H_overreliance",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.13",
+        "NIST_AI_600-1 p.35",
+        "NIST_AI_100-1 p.46"
+      ]
+    },
+    {
+      "rewritten_query": "AI model collapse homogeneous outputs lack of diversity systemic risk trustworthy AI characteristics",
+      "id": "H_homogenization",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.13",
+        "NIST_AI_600-1 p.6",
+        "NIST_AI_600-1 p.61"
+      ]
+    },
+    {
+      "rewritten_query": "Third-party AI risks, trustworthy AI supply chain, AI acquisition, external components, NIST AI 100-1, AI 600-1, third-party entities, provenance, transparency, accountability.",
+      "id": "H_value_chain",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.47",
+        "NIST_AI_100-1 p.10",
+        "NIST_AI_100-1 p.5"
+      ]
+    },
+    {
+      "rewritten_query": "Generative AI dual-use cybersecurity risks, malicious exploitation, software vulnerability exploitation, automated cyberattacks, and system compromise safeguards in NIST AI RMF.",
+      "id": "H_info_security",
+      "first_relevant_rank": 4,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.44",
+        "NIST_AI_100-1 p.43",
+        "NIST_AI_100-1 p.6"
+      ]
+    },
+    {
+      "rewritten_query": "Third-party red teaming generative AI systems pre-release to mitigate vulnerabilities and manage AI risks.",
+      "id": "H_red_team",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.44",
+        "NIST_AI_600-1 p.54",
+        "NIST_AI_600-1 p.44"
+      ]
+    },
+    {
+      "rewritten_query": "Provenance authenticity synthetic content detection watermarking provenance traceability generative AI AI-generated text media identification",
+      "id": "H_provenance",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.37",
+        "NIST_AI_600-1 p.45",
+        "NIST_AI_600-1 p.55"
+      ]
+    }
+  ]
+}

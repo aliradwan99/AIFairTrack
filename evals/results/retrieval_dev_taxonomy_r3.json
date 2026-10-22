@@ -1,0 +1,152 @@
+{
+  "label": "dev_taxonomy_r3",
+  "cases_file": "retrieval_cases.json",
+  "query_rewrite": "taxonomy",
+  "timestamp": "2026-10-21T19:32:40",
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "filter_boilerplate": true,
+  "index_chunks": 350,
+  "label_errors": [],
+  "summary": {
+    "cases": 12,
+    "hit@1": 0.417,
+    "hit@4": 0.917,
+    "hit@8": 1.0,
+    "mrr": 0.642,
+    "boilerplate_rate": 0.0
+  },
+  "cases": [
+    {
+      "rewritten_query": "Generative AI risk management framework confabulation information integrity",
+      "id": "R1_confabulation",
+      "first_relevant_rank": 3,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.6",
+        "NIST_AI_600-1 p.14",
+        "NIST_AI_600-1 p.35"
+      ]
+    },
+    {
+      "rewritten_query": "Post-deployment monitoring harmful bias generative AI NIST AI 100-1 AI 600-1 measure govern assess",
+      "id": "bias_monitoring",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.34",
+        "NIST_AI_600-1 p.40",
+        "NIST_AI_600-1 p.43"
+      ]
+    },
+    {
+      "rewritten_query": "NIST AI 600-1 harmful bias or homogenization categories types definition",
+      "id": "bias_categories",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.23",
+        "NIST_AI_100-1 p.17",
+        "NIST_AI_600-1 p.60"
+      ]
+    },
+    {
+      "rewritten_query": "Characteristics of trustworthy AI valid, reliable, safe, secure, resilient, accountable, transparent, explainable, privacy-enhanced, fair, harmful bias mitigated.",
+      "id": "trustworthy_traits",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.17",
+        "NIST_AI_100-1 p.17",
+        "NIST_AI_600-1 p.13"
+      ]
+    },
+    {
+      "rewritten_query": "AI RMF core four functions Govern Map Measure Manage",
+      "id": "core_functions",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.25",
+        "NIST_AI_100-1 p.8",
+        "NIST_AI_100-1 p.37"
+      ]
+    },
+    {
+      "rewritten_query": "NIST AI RMF AI 100-1 AI 600-1 mandatory compliance governance legal enforcement voluntary adoption risk management framework",
+      "id": "voluntary",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.8",
+        "NIST_AI_600-1 p.5",
+        "NIST_AI_100-1 p.14"
+      ]
+    },
+    {
+      "rewritten_query": "generative AI data privacy risks, training data extraction, personal identifiable information, privacy controls, provenance, data governance, NIST AI 600-1",
+      "id": "data_privacy",
+      "first_relevant_rank": 8,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.55",
+        "NIST_AI_600-1 p.6",
+        "NIST_AI_600-1 p.5"
+      ]
+    },
+    {
+      "rewritten_query": "Generative AI risk CBRN information capabilities weapon development hazard value chain component integration",
+      "id": "cbrn",
+      "first_relevant_rank": 2,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.5",
+        "NIST_AI_600-1 p.9",
+        "NIST_AI_600-1 p.35"
+      ]
+    },
+    {
+      "rewritten_query": "generative AI intellectual property risks data privacy value chain component integration",
+      "id": "intellectual_property",
+      "first_relevant_rank": 4,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.6",
+        "NIST_AI_600-1 p.5",
+        "NIST_AI_600-1 p.5"
+      ]
+    },
+    {
+      "rewritten_query": "Human-AI configuration human oversight monitoring accountability governance lifecycle",
+      "id": "human_oversight",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_100-1 p.45",
+        "NIST_AI_600-1 p.22",
+        "NIST_AI_600-1 p.20"
+      ]
+    },
+    {
+      "rewritten_query": "Environmental Impacts generative AI risks energy resource consumption lifecycle emissions",
+      "id": "environment",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.12",
+        "NIST_AI_600-1 p.12",
+        "NIST_AI_600-1 p.5"
+      ]
+    },
+    {
+      "rewritten_query": "Obscene, Degrading, and/or Abusive Content generative AI risks mitigation trustworthiness characteristics NIST AI 600-1 AI 100-1",
+      "id": "harmful_imagery",
+      "first_relevant_rank": 1,
+      "boilerplate_in_top_k": 0,
+      "top_3": [
+        "NIST_AI_600-1 p.15",
+        "NIST_AI_600-1 p.15",
+        "NIST_AI_600-1 p.11"
+      ]
+    }
+  ]
+}

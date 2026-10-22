@@ -95,3 +95,12 @@ If none qualifies, rewriting is not adopted, and that is a valid result.
   was pre-registered; chose plain because held-out performance measures generalization.
 - Rewrites run on gemini-3.5-flash-lite (REWRITE_MODEL), with the main chain as fallback.
 - Caveats: 7 held-out cases (one case ~0.14 hit@4); LLM rewrites vary run to run.
+
+### Phase 6c correction: run-to-run variance
+Repeating the adopted "plain" config with identical settings changed held-out MRR from
+0.833 to 0.690 and dev MRR from 0.736 to 0.711, and introduced a new dev miss (data_privacy).
+Variance comes from nondeterministic LLM rewrites. Conclusions revised:
+- ROBUST: rewriting beats no rewriting on held-out (both runs), and R1/H_emotional stay fixed.
+- NOT SUPPORTED: plain beating taxonomy. Single runs cannot separate them.
+- RISK: a poor rewrite can push a correct result out of the top 8 (data_privacy).
+Method change: compare configurations on the mean and range of 3 runs, not single runs.
