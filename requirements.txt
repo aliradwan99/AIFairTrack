@@ -9,3 +9,4 @@ pypdf
 python-dotenv
 langchain-google-genai
 langchain-google-genai
+langchain-anthropic

@@ -8,7 +8,7 @@ import os
 
 from aims_track.agent.llm import get_llm, call_with_fallback
 
-REWRITE_MODEL = os.getenv("REWRITE_MODEL", "google_genai:gemini-3.5-flash-lite")
+REWRITE_MODEL = os.getenv("REWRITE_MODEL", "anthropic:claude-haiku-5-5")
 
 # The 12 generative AI risk categories as organized in NIST AI 600-1.
 # Used only by the "taxonomy" mode, which lost to "plain" on held-out questions (Phase 6c).

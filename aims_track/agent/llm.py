@@ -8,13 +8,13 @@ from langchain.chat_models import init_chat_model
 load_dotenv()
 
 # Pinned on purpose: a fixed model version keeps audit results comparable run to run
-DEFAULT_MODEL = "google_genai:gemini-3.6-flash"
+DEFAULT_MODEL = "anthropic:claude-sonnet-5-5"
 PRIMARY_MODEL = os.getenv("LLM_MODEL", DEFAULT_MODEL)
 
 # Tried in order if the primary fails. On the free tier, each model usually has its own quota.
 _fallbacks = os.getenv(
     "LLM_FALLBACK_MODELS",
-    "google_genai:gemini-3.5-flash,google_genai:gemini-3-flash-preview",
+    "anthropic:claude-haiku-5-5",
 )
 MODEL_CHAIN = [PRIMARY_MODEL] + [
     m.strip() for m in _fallbacks.split(",") if m.strip() and m.strip() != PRIMARY_MODEL
@@ -25,6 +25,8 @@ RATE_LIMIT_WAIT_SECONDS = 45
 def get_llm(model: str | None = None, temperature: float | None = None):
     # Newer Gemini models ignore temperature, so only send it when explicitly requested
     kwargs = {} if temperature is None else {"temperature": temperature}
+    if (model or PRIMARY_MODEL).startswith("anthropic:"):
+        kwargs.setdefault("max_tokens", 4096)  # avoid truncated reports
     return init_chat_model(model or PRIMARY_MODEL, **kwargs)
 
 
