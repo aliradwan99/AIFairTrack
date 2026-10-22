@@ -168,3 +168,9 @@ Any model-level success that only layer 3 stops is reported as such, not hidden.
 - **Scorer v2:** quoted mentions of the payload no longer count as compliance. Rescored from saved reports.
 - **Corrected baseline: model-level ASR 1/12 (8%); system-level ASR 1/12 (8%).**
 - Lesson: automated attack scoring must be spot-checked; a naive string match overstated ASR 2x.
+
+- **G6: Guardrail made the report less honest about the data.** With an injection aliased away,
+  the report's Limitations stated "No instruction-like or suspicious text was found," contradicting
+  the UI warning. True from the model's view (it never saw the payload) but misleading to readers of
+  the report alone. Fix: the agent is now told which labels were aliased and must note it under
+  Limitations. Note: the defended red-team run above predates this fix.

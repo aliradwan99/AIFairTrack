@@ -21,3 +21,4 @@ env/
 .env
 chroma_db/
 venv/
+poisoned_demo.csv

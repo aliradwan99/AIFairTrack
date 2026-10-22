@@ -71,6 +71,7 @@ class AuditState(TypedDict, total=False):
     retrieved: list
     citation_check: dict
     policy_check: dict
+    aliased_labels: list
 
 
 def build_audit_graph(df: pd.DataFrame, guardrails: bool):
@@ -98,6 +99,10 @@ def build_audit_graph(df: pd.DataFrame, guardrails: bool):
             f"Pre-computed metrics:\n{json.dumps(state['metrics'], indent=2)}\n\n"
             "Write the fairness risk report."
         )
+        if state.get("aliased_labels"):
+            task += ("\n\nNote from the system: these dataset labels were replaced with neutral aliases "
+                     f"because they contained possible injected instructions: {', '.join(state['aliased_labels'])}. "
+                     "Mention this under Limitations as a data integrity concern.")
 
         def run_agent(model_name):
             agent = create_agent(get_llm(model_name), tools=tools, system_prompt=system_prompt)
@@ -159,6 +164,7 @@ def run_audit(df: pd.DataFrame, label_col: str, group_col: str, positive_label: 
     result = graph.invoke({
         "label_col": label_col, "group_col": group_col, "positive_label": str(positive_label),
         "privileged": str(privileged), "unprivileged": str(unprivileged), "guardrails": guardrails,
+        "aliased_labels": [f["alias"] for f in findings],
     })
     result["input_findings"] = findings
     return result

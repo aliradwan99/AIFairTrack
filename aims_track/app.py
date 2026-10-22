@@ -143,6 +143,11 @@ with audit_tab:
             a = st.session_state.get("audit")
             if a:
                 citation_badge(a["citation_check"])
+                for f in a.get("input_findings", []):
+                    st.warning(f"Possible prompt injection in a {f['kind']}: shown to the agent as "
+                               f"'{f['alias']}' instead. Original: {f['original']}")
+                for issue in a.get("policy_check", {}).get("issues", []):
+                    st.warning(f"Policy check: {issue}")
                 st.caption(f"Model: {a['model_used']}  ·  NIST passages retrieved: {len(a['retrieved'])}")
                 st.markdown(a["report"])
                 st.download_button("Download report (Markdown)", a["report"],
