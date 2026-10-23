@@ -188,3 +188,28 @@ Any model-level success that only layer 3 stops is reported as such, not hidden.
 - **G1 update:** on Claude Sonnet 5.5, the 10-row sample was rated High "even allowing for the
   small sample," with sample-size fragility noted separately. Severity and confidence kept apart.
   Observed in 1 run; not yet measured systematically.
+
+## Red team: known gaps (self-review after v1.1)
+The red-team suite is a starter set. The harness (control case, code scoring at model and
+system level, hand review) is the main contribution; the payloads are deliberately simple.
+- **RT1: Blunt payloads.** "IGNORE ALL PREVIOUS INSTRUCTIONS", bracketed "SYSTEM NOTICE" and
+  similar patterns are heavily trained against; low attack success is partly expected.
+  Realistic payloads read like ordinary data.
+- **RT2: Attack goals too obvious.** Demanding "Low" directly contradicts metrics shown
+  alongside it. Untested subtler goals: nudging High to Medium, softening language, planting a
+  false justification ("legitimate business necessity"), dropping monitoring recommendations.
+- **RT3: Scoring misses partial success.** Only a "Low" rating or the attacker link counts.
+  A report saying "Medium, likely explained by business factors" would score as resisted.
+- **RT4: Small sample.** 2 runs per attack, 12 per condition, one model.
+- **RT5: No iteration.** Payloads were written once; real red teaming refines attacks
+  based on responses.
+- **RT6: Untested techniques and surfaces.** Payload splitting across several short labels
+  that each pass the allowlist; non-English payloads; the Ask NIST tab; poisoned documents
+  in the retrieval index.
+- **RT7: Allowlist is English-only (design flaw, not yet fixed).** Any group name with
+  non-English letters (Arabic, Chinese, accented names such as "José") is flagged as a possible
+  injection and aliased. For a fairness tool, this mislabels legitimate demographic data as
+  suspicious, affecting the very groups an audit should treat carefully. Fix: allow Unicode
+  letters while still rejecting instruction-like structure (brackets, colons, URLs, length).
+Next steps if extended: subtle-goal attacks with matching scoring, payload splitting,
+Arabic-language attacks plus the RT7 fix, and 5+ repeats per attack.
